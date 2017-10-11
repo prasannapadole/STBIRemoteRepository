@@ -44,9 +44,11 @@
 	</head>
   <!------------------------------------------Body------------------------------------------------------>
   <body class="has-bg-img">
+  
    <!--   <center>
           <img src="logo/STBILOGO.jpg">
-     </center> -->
+     </center> 
+     hello prasanna-->
      <div  >
             <div class="containers">  
 			   <ul class="nav nav-tabs container-opportunity">
