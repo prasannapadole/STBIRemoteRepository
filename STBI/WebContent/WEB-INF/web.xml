@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>STBI</display-name>
+  <servlet>
+    <servlet-name>LoginController</servlet-name>
+    <servlet-class> com.user.login.LoginController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginController</servlet-name>
+    <url-pattern>/LoginController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Registration</servlet-name>
+    <servlet-class>com.user.controller.Registration </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Registration</servlet-name>
+    <url-pattern>/Registration</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Matchemail</servlet-name>
+    <servlet-class>com.user.controller.Matchemail </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Matchemail</servlet-name>
+    <url-pattern>/Matchemail</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserForgotpass</servlet-name>
+    <servlet-class>com.user.forgot.userpassword.UserForgotpass </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserForgotpass</servlet-name>
+    <url-pattern>/UserForgotpass</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Ideasubmit</servlet-name>
+    <servlet-class> com.user.idea.Ideasubmit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ideasubmit</servlet-name>
+    <url-pattern>/Ideasubmit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>IdeasubmitUpdateProgress</servlet-name>
+    <servlet-class>com.user.ideasubmit.updateprogress.IdeasubmitUpdateProgress </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IdeasubmitUpdateProgress</servlet-name>
+    <url-pattern>/IdeasubmitUpdateProgress</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserRequestSupportPage</servlet-name>
+    <servlet-class>com.user.newuser.request.support.UserRequestSupportPage </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserRequestSupportPage</servlet-name>
+    <url-pattern>/UserRequestSupportPage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserAddskill</servlet-name>
+    <servlet-class>com.user.personal.userinfo.UserAddskill </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserAddskill</servlet-name>
+    <url-pattern>/UserAddskill</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateUserInfo</servlet-name>
+    <servlet-class> com.user.personal.userinfo.UpdateUserInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUserInfo</servlet-name>
+    <url-pattern>/UpdateUserInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>InsertUserEducation</servlet-name>
+    <servlet-class>com.user.personal.userinfo.InsertUserEducation </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertUserEducation</servlet-name>
+    <url-pattern>/InsertUserEducation</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SetPassword</servlet-name>
+    <servlet-class>com.user.setpassword.SetPassword </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SetPassword</servlet-name>
+    <url-pattern>/SetPassword</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RequestToDeleteIdea</servlet-name>
+    <servlet-class>com.user.useredit.personaldetails.RequestToDeleteIdea </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestToDeleteIdea</servlet-name>
+    <url-pattern>/RequestToDeleteIdea</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EducationEdit</servlet-name>
+    <servlet-class>com.user.useredit.personaldetails.EducationEdit </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EducationEdit</servlet-name>
+    <url-pattern>/EducationEdit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditSkills</servlet-name>
+    <servlet-class>com.user.useredit.personaldetails.EditSkills </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditSkills</servlet-name>
+    <url-pattern>/EditSkills</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserLogout</servlet-name>
+    <servlet-class>com.user.userlogout.UserLogout </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserLogout</servlet-name>
+    <url-pattern>/UserLogout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Incubation_IncubiteeEdit</servlet-name>
+    <servlet-class>com.incubation.edit.personalinfo.Incubation_IncubiteeEdit </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Incubation_IncubiteeEdit</servlet-name>
+    <url-pattern>/Incubation_IncubiteeEdit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>IncubationMilestoneEdit</servlet-name>
+    <servlet-class> com.incubation.edit.personalinfo.IncubationMilestoneEdit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IncubationMilestoneEdit</servlet-name>
+    <url-pattern>/IncubationMilestoneEdit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>IncubationForgotPass</servlet-name>
+    <servlet-class>com.incubation.forgotpass.IncubationForgotPass </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IncubationForgotPass</servlet-name>
+    <url-pattern>/IncubationForgotPass</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Incubation_Internship_upgradeProcess</servlet-name>
+    <servlet-class>com.incubation.incubation_internship_upgradeprocess.Incubation_Internship_upgradeProcess</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Incubation_Internship_upgradeProcess</servlet-name>
+    <url-pattern>/Incubation_Internship_upgradeProcess</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Incubation_Project_upgradeProcess</servlet-name>
+    <servlet-class>com.incubation.incubation_project_upgradeprocess.Incubation_Project_upgradeProcess </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Incubation_Project_upgradeProcess</servlet-name>
+    <url-pattern>/Incubation_Project_upgradeProcess</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>IncubationMilestones</servlet-name>
+    <servlet-class>com.incubation.incubationpersobalinfo.IncubationMilestones </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IncubationMilestones</servlet-name>
+    <url-pattern>/IncubationMilestones</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>IncubationDetails</servlet-name>
+    <servlet-class>com.incubation.incubationpersobalinfo.IncubationDetails </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IncubationDetails</servlet-name>
+    <url-pattern>/IncubationDetails</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>IncubationRegi</servlet-name>
+    <servlet-class>com.incubation.incubationregistration.IncubationRegi </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IncubationRegi</servlet-name>
+    <url-pattern>/IncubationRegi</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>IncubationLogout</servlet-name>
+    <servlet-class>com.incubation.logout.IncubationLogout </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IncubationLogout</servlet-name>
+    <url-pattern>/IncubationLogout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>IncubationRequesttoDeleteproject</servlet-name>
+    <servlet-class>com.incubation.projectdeleterequest.IncubationRequesttoDeleteproject </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IncubationRequesttoDeleteproject</servlet-name>
+    <url-pattern>/IncubationRequesttoDeleteproject</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>IncubationResetPassword</servlet-name>
+    <servlet-class> com.incubation.resetpassword.IncubationResetPassword</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IncubationResetPassword</servlet-name>
+    <url-pattern>/IncubationResetPassword</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>InstituteApplyforInternship</servlet-name>
+    <servlet-class>com.institute.applyforinternship.InstituteApplyforInternship </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InstituteApplyforInternship</servlet-name>
+    <url-pattern>/InstituteApplyforInternship</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>InstituteMatchemailPage</servlet-name>
+    <servlet-class>com.institute.instituteregi.InstituteMatchemailPage </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InstituteMatchemailPage</servlet-name>
+    <url-pattern>/InstituteMatchemailPage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Institute_RequestDeleteInternship</servlet-name>
+    <servlet-class>com.institute.deleteinternshiprequest.Institute_RequestDeleteInternship </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Institute_RequestDeleteInternship</servlet-name>
+    <url-pattern>/Institute_RequestDeleteInternship</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>InstituteEditDept</servlet-name>
+    <servlet-class>com.institute.edit.personalinfo.InstituteEditDept </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InstituteEditDept</servlet-name>
+    <url-pattern>/InstituteEditDept</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>InstituteForgotPass</servlet-name>
+    <servlet-class>com.institute.forgotpass.InstituteForgotPass </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InstituteForgotPass</servlet-name>
+    <url-pattern>/InstituteForgotPass</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Institute_Internship_upgradeProcess</servlet-name>
+    <servlet-class>com.institute.institute_internship_upgradeprocess.Institute_Internship_upgradeProcess </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Institute_Internship_upgradeProcess</servlet-name>
+    <url-pattern>/Institute_Internship_upgradeProcess</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Institute_Project_upgradeProcess</servlet-name>
+    <servlet-class>com.institute.institute_project_upgradeprocess.Institute_Project_upgradeProcess </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Institute_Project_upgradeProcess</servlet-name>
+    <url-pattern>/Institute_Project_upgradeProcess</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>InstituteRegistration</servlet-name>
+    <servlet-class>com.institute.instituteregi.InstituteRegistration </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InstituteRegistration</servlet-name>
+    <url-pattern>/InstituteRegistration</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateInformation</servlet-name>
+    <servlet-class>com.institute.instutepersonalinfo.UpdateInformation </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateInformation</servlet-name>
+    <url-pattern>/UpdateInformation</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddMilestones</servlet-name>
+    <servlet-class>com.institute.instutepersonalinfo.AddMilestones </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddMilestones</servlet-name>
+    <url-pattern>/AddMilestones</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddDepratmentInformation</servlet-name>
+    <servlet-class>com.institute.instutepersonalinfo.AddDepratmentInformation </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddDepratmentInformation</servlet-name>
+    <url-pattern>/AddDepratmentInformation</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>InstituteLogout</servlet-name>
+    <servlet-class>com.institute.logout.InstituteLogout </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InstituteLogout</servlet-name>
+    <url-pattern>/InstituteLogout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>InstituteRequesttoDeleteproject</servlet-name>
+    <servlet-class>com.institute.projectdeleterequest.InstituteRequesttoDeleteproject </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InstituteRequesttoDeleteproject</servlet-name>
+    <url-pattern>/InstituteRequesttoDeleteproject</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>InstituteResetPassword</servlet-name>
+    <servlet-class>com.institute.resetpass.InstituteResetPassword </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InstituteResetPassword</servlet-name>
+    <url-pattern>/InstituteResetPassword</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MentorForgotpass</servlet-name>
+    <servlet-class>com.mentor.mentorforgotpassword.MentorForgotpass </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MentorForgotpass</servlet-name>
+    <url-pattern>/MentorForgotpass</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Mentorlogin</servlet-name>
+    <servlet-class>com.mentor.mentorlogin.Mentorlogin </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Mentorlogin</servlet-name>
+    <url-pattern>/Mentorlogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MentorUpdatepersonal</servlet-name>
+    <servlet-class>com.mentor.mentorpersonalinfo.MentorUpdatepersonal </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MentorUpdatepersonal</servlet-name>
+    <url-pattern>/MentorUpdatepersonal</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MentorProfessionalExperience</servlet-name>
+    <servlet-class>com.mentor.mentorpersonalinfo.MentorProfessionalExperience </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MentorProfessionalExperience</servlet-name>
+    <url-pattern>/MentorProfessionalExperience</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Mentorexp</servlet-name>
+    <servlet-class> com.mentor.mentorpersonalinfo.Mentorexp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Mentorexp</servlet-name>
+    <url-pattern>/Mentorexp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Mentoraddskill</servlet-name>
+    <servlet-class> com.mentor.mentorpersonalinfo.Mentoraddskill</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Mentoraddskill</servlet-name>
+    <url-pattern>/Mentoraddskill</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MentoraddEducation</servlet-name>
+    <servlet-class>com.mentor.mentorpersonalinfo.MentoraddEducation </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MentoraddEducation</servlet-name>
+    <url-pattern>/MentoraddEducation</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Mentoraddcourse</servlet-name>
+    <servlet-class>com.mentor.mentorpersonalinfo.Mentoraddcourse </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Mentoraddcourse</servlet-name>
+    <url-pattern>/Mentoraddcourse</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MentorRegistration</servlet-name>
+    <servlet-class>com.mentor.MentorRegistration.MentorRegistration </servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CheckemailAjax</servlet-name>
+    <servlet-class>com.mentor.MentorRegistration.CheckemailAjax</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckemailAjax</servlet-name>
+    <url-pattern>/CheckemailAjax</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MentorRegistration</servlet-name>
+    <url-pattern>/MentorRegistration</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MentorResetpassword</servlet-name>
+    <servlet-class>com.mentor.mentorresetpassword.MentorResetpassword </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MentorResetpassword</servlet-name>
+    <url-pattern>/MentorResetpassword</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MentorLogout</servlet-name>
+    <servlet-class>com.mentor.signout.MentorLogout </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MentorLogout</servlet-name>
+    <url-pattern>/MentorLogout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MentorEditSkill</servlet-name>
+    <servlet-class>com.metor.edit.mentorpersonalinfo.MentorEditSkill </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MentorEditSkill</servlet-name>
+    <url-pattern>/MentorEditSkill</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MentorEditExperience</servlet-name>
+    <servlet-class>com.metor.edit.mentorpersonalinfo.MentorEditExperience </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MentorEditExperience</servlet-name>
+    <url-pattern>/MentorEditExperience</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditMentorEducation</servlet-name>
+    <servlet-class>com.metor.edit.mentorpersonalinfo.EditMentorEducation </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditMentorEducation</servlet-name>
+    <url-pattern>/EditMentorEducation</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Sig_CordinatorDetail</servlet-name>
+    <servlet-class>com.sig.coordinatordetails.Sig_CordinatorDetail </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sig_CordinatorDetail</servlet-name>
+    <url-pattern>/Sig_CordinatorDetail</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RequesttoDeleteproject</servlet-name>
+    <servlet-class>com.sig.deleteprojectrequest.RequesttoDeleteproject </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequesttoDeleteproject</servlet-name>
+    <url-pattern>/RequesttoDeleteproject</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SigEditMilestone</servlet-name>
+    <servlet-class>com.sig.edit.personalinfo.SigEditMilestone </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SigEditMilestone</servlet-name>
+    <url-pattern>/SigEditMilestone</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SigEditSkill</servlet-name>
+    <servlet-class> com.sig.edit.personalinfo.SigEditSkill</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SigEditSkill</servlet-name>
+    <url-pattern>/SigEditSkill</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SigLogin</servlet-name>
+    <servlet-class>com.sig.institute.incubation.login.SigLogin </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SigLogin</servlet-name>
+    <url-pattern>/SigLogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>InstituteLogin</servlet-name>
+    <servlet-class> com.sig.institute.incubation.login.InstituteLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InstituteLogin</servlet-name>
+    <url-pattern>/InstituteLogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>IncubationLogin</servlet-name>
+    <servlet-class>com.sig.institute.incubation.login.IncubationLogin </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IncubationLogin</servlet-name>
+    <url-pattern>/IncubationLogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Sig_Internship_upgradeProcess</servlet-name>
+    <servlet-class>com.sig.Sig_internship_upgradeprocess.Sig_Internship_upgradeProcess </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sig_Internship_upgradeProcess</servlet-name>
+    <url-pattern>/Sig_Internship_upgradeProcess</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Sig_project_UpgradeProcess</servlet-name>
+    <servlet-class>com.sig.sig_project_upgradeprocess.Sig_project_UpgradeProcess </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sig_project_UpgradeProcess</servlet-name>
+    <url-pattern>/Sig_project_UpgradeProcess</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SigForgotpass</servlet-name>
+    <servlet-class>com.sig.sigforgotpassword.SigForgotpass </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SigForgotpass</servlet-name>
+    <url-pattern>/SigForgotpass</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SigLogout</servlet-name>
+    <servlet-class>com.sig.siglogout.SigLogout </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SigLogout</servlet-name>
+    <url-pattern>/SigLogout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Milestone</servlet-name>
+    <servlet-class>com.sig.sigpersonalinfo.Milestone </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Milestone</servlet-name>
+    <url-pattern>/Milestone</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddSkillCommercialisation</servlet-name>
+    <servlet-class>com.sig.sigpersonalinfo.AddSkillCommercialisation </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddSkillCommercialisation</servlet-name>
+    <url-pattern>/AddSkillCommercialisation</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SigRegistration</servlet-name>
+    <servlet-class>com.sig.sigregistration.SigRegistration </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SigRegistration</servlet-name>
+    <url-pattern>/SigRegistration</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SigResetPass</servlet-name>
+    <servlet-class> com.sig.sigresetpassword.SigResetPass</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SigResetPass</servlet-name>
+    <url-pattern>/SigResetPass</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ApplyForInternship</servlet-name>
+    <servlet-class>com.upgrademybusiness.applyforinternship.ApplyForInternship </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApplyForInternship</servlet-name>
+    <url-pattern>/ApplyForInternship</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ProjectApplyStatus</servlet-name>
+    <servlet-class>com.upgrademybusiness.applytoproject.ProjectApplyStatus </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProjectApplyStatus</servlet-name>
+    <url-pattern>/ProjectApplyStatus</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpgradeMyBusinessEditProductInfo</servlet-name>
+    <servlet-class> com.upgrademybusiness.edit.personalinfo.UpgradeMyBusinessEditProductInfo </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpgradeMyBusinessEditProductInfo</servlet-name>
+    <url-pattern>/UpgradeMyBusinessEditProductInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MybusinessInternshipDetails</servlet-name>
+    <servlet-class>com.upgrademybusiness.internshipdetails.MybusinessInternshipDetails </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MybusinessInternshipDetails</servlet-name>
+    <url-pattern>/MybusinessInternshipDetails</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpgradeMybusinessLoginpage</servlet-name>
+    <servlet-class>com.upgrademybusiness.login.UpgradeMybusinessLoginpage </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpgradeMybusinessLoginpage</servlet-name>
+    <url-pattern>/UpgradeMybusinessLoginpage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MybusinessLogout</servlet-name>
+    <servlet-class>com.upgrademybusiness.logout.MybusinessLogout </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MybusinessLogout</servlet-name>
+    <url-pattern>/MybusinessLogout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MyBusinessForgotpass</servlet-name>
+    <servlet-class>com.upgrademybusiness.mybusinessforgotpass.MyBusinessForgotpass </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyBusinessForgotpass</servlet-name>
+    <url-pattern>/MyBusinessForgotpass</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateBasicInfo</servlet-name>
+    <servlet-class>com.upgrademybusiness.personalinfo.UpdateBasicInfo </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateBasicInfo</servlet-name>
+    <url-pattern>/UpdateBasicInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MybusinessSkillDevelopment</servlet-name>
+    <servlet-class>com.upgrademybusiness.personalinfo.MybusinessSkillDevelopment </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MybusinessSkillDevelopment</servlet-name>
+    <url-pattern>/MybusinessSkillDevelopment</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MybusinessProductInfo</servlet-name>
+    <servlet-class>com.upgrademybusiness.personalinfo.MybusinessProductInfo </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MybusinessProductInfo</servlet-name>
+    <url-pattern>/MybusinessProductInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MybusinessAddProject</servlet-name>
+    <servlet-class>com.upgrademybusiness.projectinfo.MybusinessAddProject </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MybusinessAddProject</servlet-name>
+    <url-pattern>/MybusinessAddProject</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpgradeMybusinessResetPass</servlet-name>
+    <servlet-class>com.upgrademybusiness.resetpassword.UpgradeMybusinessResetPass </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpgradeMybusinessResetPass</servlet-name>
+    <url-pattern>/UpgradeMybusinessResetPass</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpgradeMyBusiness</servlet-name>
+    <servlet-class>com.upgrademybusiness.upgraderegistration.UpgradeMyBusiness </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpgradeMyBusiness</servlet-name>
+    <url-pattern>/UpgradeMyBusiness</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpgradeBusinessMatchEmail</servlet-name>
+    <servlet-class>com.upgrademybusiness.upgraderegistration.UpgradeBusinessMatchEmail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpgradeBusinessMatchEmail</servlet-name>
+    <url-pattern>/UpgradeBusinessMatchEmail</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>begin-login.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
