@@ -33,6 +33,7 @@
 		}catch(e){alert("Unable to connect to server");}  
 		}  
 		  
+		
 		function getInfo(){  
 		if(request.readyState==4){  
 		var val=request.responseText;  
