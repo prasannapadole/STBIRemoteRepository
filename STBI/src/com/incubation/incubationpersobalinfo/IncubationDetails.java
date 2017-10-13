@@ -51,7 +51,16 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			String noofteammember=request.getParameter("team");
 			String dateofstartup=request.getParameter("dates");
 			String legalstatus=request.getParameter("legalstatus");
-	
+             String otherlegalstatus=request.getParameter("other");
+             String otherlegalstatuss=""; 
+             if(otherlegalstatus!=null)
+             {
+            	 otherlegalstatuss=otherlegalstatus; 
+             }
+             else
+             {
+            	 otherlegalstatuss="-"; 
+             }
 			String query="select incubationId from incubationregi where emailid=?";
 			pst=con.prepareStatement(query);
 			pst.setString(1,incubationemail);
@@ -77,7 +86,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		 		{
 		 		incubationdeatilId=dbincubationdetailId+1;
 		 		}
-	         	String query2="insert into incubationdetail values(?,?,?,?,?,?,?)";
+	         	String query2="insert into incubationdetail values(?,?,?,?,?,?,?,?)";
 	         	pst1=con.prepareStatement(query2);
 	         	pst1.setLong(1,incubationdeatilId);
 			 	pst1.setString(2,nameofincubatiion); 
@@ -85,7 +94,8 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			 	pst1.setString(4,noofteammember);
 			 	pst1.setString(5,dateofstartup);
 			 	pst1.setString(6,legalstatus);
-			 	pst1.setLong(7,dbincubationid);
+				pst1.setString(7,otherlegalstatuss);
+			 	pst1.setLong(8,dbincubationid);
 			 	int i=pst1.executeUpdate();
 			 	if(i>0)
 			 		{

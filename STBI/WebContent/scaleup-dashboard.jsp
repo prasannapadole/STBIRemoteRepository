@@ -5,7 +5,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html ng-app="scaleupDashboard" ng-controller="scaleupctrldashboard">
-    <head>
+     <head>
 	    <title>Scaleup Dashboard</title>
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -183,7 +183,6 @@
 																    		<option value="Law/ Legal">Law/ Legal  </option>
 																    		<option value="Campus Ambassador">Campus Ambassador </option>
 																    		<option value="other">Other</option>
-																    		<option></option>
 																    	</select>
 																	  </div>
 																	  <div ng-switch="about">
@@ -212,7 +211,10 @@
 																			  <div class="form-group">
 																			    <label for="inputlg">Stipend (In Rs.)</label>
 																			    <input class="form-control input-md"  type="text" name="stipend" ng-model="stipend" ng-pattern="/^[0-9]{1,6}$/" required>
-																			 	<span ng-show="scaleupForm.stipend.$error.pattern" style="color:red">Enter only number.</span>
+																			 		<span style="color: red;" ng-show="scaleupForm.stipend.$dirty && scaleupForm.stipend.$invalid">
+																			    		<span style="color: red;" ng-show="scaleupForm.stipend.$error.required">Field Required</span>
+																			        </span>
+																			     	<span style="color: red;" ng-show="scaleupForm.stipend.$error.pattern" >Enter only number.</span>
 																			  </div>
 																		   </div>
 																      </div>
@@ -241,7 +243,7 @@
 																	   </div>
 																	   <div class="form-group">
 																	    <label for="inputlg">Number of Opening <br><small>(Enter only numbers)</small></label>
-																	    <input class="form-control input-md"  type="text" name="opening" ng-model="opening" ng-pattern="/^[0-9]{1,6}$/" required>
+																	    <input class="form-control input-md"  type="text" name="opening" ng-model="opening" ng-pattern="/^[0-9]{1,100}$/" required>
 																	    <span ng-show="scaleupForm.opening.$error.pattern" style="color:red">Enter only number.</span>
 																	  </div>
 																	   <div class="form-group">
@@ -316,36 +318,15 @@
 												        <td align="center"><p class="table-data"><%=dbapplydate %></p></td>
 												        <td align="center"><p class=" fload_right table-data-button">
 															<a class="btn btn-xs btn-warning active"  target="_blank">View Response</a><%--href="scaleup-view-internship-response.jsp?dbinternsId=<%=dbinternsId %>" --%>
-															<button type="button" class="btn btn-xs btn-info active"  data-toggle="modal" data-target="#intersdelete"><i class="fa fa-trash" style="font-size:18px"></i></button>
+															<a button type="button" class="btn btn-xs btn-info active" href="scaleup_deleteinternship.jsp?internsId=<%=dbinternsId %>"><i class="fa fa-trash" style="font-size:18px"></i></button>
 														</p></td>
 												      </tr>
 												    </tbody>	
 													  
 												<%}
 												 %>
-												   
-																				 
-											  
-											 </table><hr>
-											 <!-------------------------------Delete----------------------------------->
-											   <div class="modal fade" id="intersdelete" role="dialog">
-												    <div class="modal-dialog modal-md">
-												      <div class="modal-content">
-												        <div class="modal-header">
-												          <button type="button" class="close" data-dismiss="modal">&times;</button>
-												          <h5 class="modal-title">Say reason for deleting your idea ?</h5>
-												        </div>
-												        <div class="modal-body">
-												          <textarea rows="" cols="" class="form-control"></textarea>
-												        </div>
-												        <div class="modal-footer">
-												          <button type="Submit" class="btn btn-warning active" data-dismiss="modal">Submit</button>
-												          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-												        </div>
-												     </div>
-												  </div>
-											   </div>
-										</div>
+												 </table><hr>
+										         </div>
 										<!------------------------------------------------------------------------------------------------------------>
 										<div class="tab-pane " id="project">
 										   <div>
@@ -442,35 +423,15 @@
 											        <td align="center"><p class="table-data"><%=dbstatuss %></p></td>
 											        <td align="center"><p class=" fload_right table-data-button">
 														<a class="btn btn-xs btn-warning active" href="scaleup-view-project-response.jsp?projectId=<%=dbprojectId %>" target="_blank">View Response</a>
-														<button type="button" class="btn btn-xs btn-info active"  data-toggle="modal" data-target="#prodelete"><i class="fa fa-trash" style="font-size:18px"></i></button>
+														<a button type="button" class="btn btn-xs btn-info active" href="scaleup_deleteproject.jsp?projectId=<%=dbprojectId %>"><i class="fa fa-trash" style="font-size:18px"></i></a>
 													</p></td>
 											      </tr>
 											    </tbody>
 													 
 												 <%}
 											    %>
-											    
-											    
-											 </table><hr>
-											 <!-------------------------------Delete----------------------------------->
-											   <div class="modal fade" id="prodelete" role="dialog">
-												    <div class="modal-dialog modal-md">
-												      <div class="modal-content">
-												        <div class="modal-header">
-												          <button type="button" class="close" data-dismiss="modal">&times;</button>
-												          <h5 class="modal-title">Say reason for deleting your idea ?</h5>
-												        </div>
-												        <div class="modal-body">
-												          <textarea rows="" cols="" class="form-control"></textarea>
-												        </div>
-												        <div class="modal-footer">
-												          <button type="Submit" class="btn btn-warning active" data-dismiss="modal">Submit</button>
-												          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-												        </div>
-												     </div>
-												  </div>
-											   </div>
-										</div>
+											  </table><hr>
+											</div>
 										<!------------------------------------------------------------------------------------------------------------>
 										<div class="tab-pane" id="technology">
 											<table class="table table-list table-hover card">
@@ -840,7 +801,7 @@
 																    </div>
 																    </div>
 																       <div class="form-group">
-																       <p class="control-label col-sm-3">Year of Establish :</p>
+																       <p class="control-label col-sm-3">Year of Establishment/' :</p>
 																       <div class="col-sm-8"> 
 																       <p class="font-color"><%=dbestablishyear %></p>
 																      </div>

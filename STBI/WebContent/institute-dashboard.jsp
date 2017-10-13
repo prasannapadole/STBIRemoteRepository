@@ -22,7 +22,7 @@
 	<body>
 	<%!Connection con;
 	PreparedStatement p,p1,p2,ps,ps1,pst,pst1,pst2,pst3,pst4,pst5,pst6,pst7,pst8,pst50;;
-	ResultSet r,r1,rr,rr1,rs,rs1,rs2,rs3,rs4,rs5,rs6,rs7,rs8,rs50;;
+	ResultSet r,r1,rr,rr1,rs,rs1,rs2,rs3,rs4,rs5,rs6,rs7,rs8,rs50;
 	 long dbINSTITUTEID=0;
    %>
 	<%
@@ -279,11 +279,12 @@
 														    	 <tr>
 														        <td align="center"><b><%=dbinternsId %></b></td>
 														        <td align="center"><p class="table-idea"><a href="institute-internship-details.jsp?dbinternsId=<%=dbinternsId %>" target="_blank"><%=dbcoursetitle %></a></p></td>
-														        <td align="center"><p class="table-data"><%=dbstatus %></p></td>
+														     
 														        <td align="center"><p class="table-data"><%=dbapplydate %></p></td>
+														           <td align="center"><p class="table-data"><%=dbstatus %></p></td>
 														        <td align="center"><p class=" fload_right table-data-button">
 																	<a class="btn btn-xs btn-info active" href="institute-internship-details.jsp?dbinternsId=<%=dbinternsId %>" target="">View</a>
-																	<a class="btn btn-xs btn-warning active" href="institute-internship-upgrade-progress.jsp" target="_blank">Update Progress</a>
+																	<button class="btn btn-xs btn-warning active" href="institute-internship-upgrade-progress.jsp" target="_blank">Update Progress</button>
 																	<a button type="button" class="btn btn-xs btn-info active" href="institute-deleteinternshiprequest.jsp?internsId=<%=dbinternsId %>"><i class="fa fa-trash" style="font-size:18px"></i></a>
 																</p></td>
 														      	</tr>
@@ -291,24 +292,7 @@
 														       <%}%>
 														    </tbody>
 														 </table><hr>
-														 <!-------------------------------Delete----------------------------------->
-														   <div class="modal fade" id="interndelete" role="dialog">
-															    <div class="modal-dialog modal-md">
-															      <div class="modal-content">
-															        <div class="modal-header">
-															          <button type="button" class="close" data-dismiss="modal">&times;</button>
-															          <h5 class="modal-title">Say reason for deleting your idea ?</h5>
-															        </div>
-															        <div class="modal-body">
-															          <textarea rows="" cols="" class="form-control"></textarea>
-															        </div>
-															        <div class="modal-footer">
-															          <button type="Submit" class="btn btn-warning active" data-dismiss="modal">Submit</button>
-															          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-															        </div>
-															     </div>
-															  </div>
-														   </div>
+														
 													</div>
 													<div class="tab-pane" id="project">
 													    <button type="button" class="btn btn-info active" data-toggle="collapse" data-target="#proj">Filter</button>
@@ -358,7 +342,7 @@
 														        <td align="center"><p class="table-data"><%=dbapplydatee %></p></td>
 														        <td align="center"><p class=" fload_right table-data-button">
 																	<a class="btn btn-xs btn-info active" href="institute-project-details.jsp?dbprojectId=<%=dbprojectid %>" target="">View</a>
-																	<a class="btn btn-xs btn-warning active" href="institute-project-upgrade-progress.jsp" target="_blank">Update Progress</a>
+																	<button class="btn btn-xs btn-warning active" href="institute-project-upgrade-progress.jsp" target="_blank">Update Progress</button>
 																	<a button type="button" class="btn btn-xs btn-info active" href="institute-deleteprojectrequest.jsp?projectid=<%=dbprojectid %>"><i class="fa fa-trash" style="font-size:18px"></i></a>
 																</p></td>
 														      </tr>

@@ -16,6 +16,11 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+	    
+	    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	    
 	    <script src="js/mentor-dashboard.js"></script>
 	    <script src="js/city-navbar.js"></script>
     </head>
@@ -408,7 +413,7 @@
 																      </div>
 																    </div>
 																    <div class="form-group">
-																      <p class="control-label col-sm-3"> Permenant Temporary :</p>
+																      <p class="control-label col-sm-3"> Permenant Address :</p>
 																      <div class="col-sm-8"> 
 																        <p class="font-color"><%=dbpermenentaddress %></p>
 																      </div>
@@ -450,14 +455,14 @@
 																			      <label for="inputsm" style="padding-left: 15px;">Time Period</label><br>
 																				  <div class=" col-sm-6">
 																				    <label for="inputsm"><small>From (Format : MM/DD/YYYY)</small></label>
-																				    <input class="form-control input-md" id="inputsm" type="text" name="fromdate" ng-model="fromdate" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" required/>
+																				    <input class="form-control input-md" id="from" type="text" name="fromdate" ng-model="fromdate" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" required/>
 																				      <span style="color:red" ng-show="educationForm.fromdate.$dirty && educationForm.fromdate.$invalid">
 																				      <span ng-show="educationForm.fromdate.$error.required">Please specify Date</span></span>
 																					  <span ng-show="educationForm.fromdate.$error.pattern" style="color:red"> Incorrect Format, should be MM/DD/YYYY.</span>
 																				  </div>
 																				  <div class=" col-sm-6">
 																				    <label for="inputsm"><small>To (Format : MM/DD/YYYY)</small></label>
-																				    <input class="form-control input-md" id="inputsm" type="text" name="todate" ng-model="todate" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" required/>
+																				    <input class="form-control input-md" id="to" type="text" name="todate" ng-model="todate" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" required/>
 																					  <span style="color:red" ng-show="educationForm.todate.$dirty && educationForm.todate.$invalid">
 																				      <span ng-show="educationForm.todate.$error.required">Please specify Date</span></span>
 																					  <span ng-show="educationForm.todate.$error.pattern" style="color:red"> Incorrect Format, should be MM/DD/YYYY.</span>
@@ -575,11 +580,11 @@
 																			      <label for="inputsm" style="padding-left: 15px;">Time Period</label><br>
 																				  <div class=" col-sm-6">
 																				    <label for="inputsm"><small>From</small></label>
-																				    <input class="form-control input-sm" id="inputsm" type="text" name="fromdate" required>
+																				    <input class="form-control input-sm" id="froms" type="text" name="fromdate" required>
 																				  </div>
 																				  <div class=" col-sm-6">
 																				    <label for="inputsm"><small>To</small></label>
-																				    <input class="form-control input-sm" id="inputsm" type="text" name="todate" required>
+																				    <input class="form-control input-sm" id="tos" type="text" name="todate" required>
 																				  </div>
 																			  </div>
 																			  <div class="form-group">

@@ -1,4 +1,4 @@
-angular.module("sigDashboard",[]).controller("sigctrldashboard", function($scope){
+angular.module("sigDashboard",['ui.bootstrap']).controller("sigctrldashboard", function($scope,$filter){
 	 $scope.today = new Date();
 	 $scope.rating = 5;
 	 $scope.rateFunction = function(rating) { };
@@ -21,5 +21,4 @@ angular.module("sigDashboard",[]).controller("sigctrldashboard", function($scope
          });
      };
      
-    
 });

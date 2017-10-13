@@ -19,6 +19,11 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+	    
+	    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	    
 	    <script src="js/dashboard.js"></script>
 	    <script src="js/city-navbar.js"></script>
 	  
@@ -203,7 +208,12 @@ document.getElementById('viewdetails').innerHTML=val;
 									        <div class="modal-body">
 												  <div class="form-group">
 												    <label for="inputsm">Title of your Idea / Innovation / Product / Solution</label>
-												    <input class="form-control input-md" type="text" name="ideas" ng-model="ideas" required/>
+												    <input class="form-control input-md" type="text" name="ideas" ng-maxlength="70" ng-model="ideas" required/>
+												    <small>Maximum 70 characters allowed.</small><br>
+												     <span style="color:red" ng-show="myIdeas.ideas.$dirty && myIdeas.ideas.$invalid">
+													 <span ng-show="myIdeas.ideas.$error.required"></span></span>
+													 <span ng-show="myIdeas.ideas.$error.maxlength" style="color:red">Maximum 70 characters allowed.  </span>
+												
 												  </div>
 												   <div class="form-group">
 												    <label for="inputdefault">Enter <strong>TEN</strong> key words that are closely related to your idea</label>
@@ -235,8 +245,8 @@ document.getElementById('viewdetails').innerHTML=val;
 												  </div>
 												  <div class="form-group">
 												    <label for="inputlg">Idea Description</label>
-												    <textarea class="form-control" name="description" ng-model="description" ng-minlength="130" required/></textarea>
-												    <small>Explain <strong>crisply</strong> about your idea in 140 words and clearly mention what are its different solution. Also write unique selling point USP of your idea.</small><br>
+												    <textarea class="form-control" name="description" ng-model="description" ng-minlength="700" required/></textarea>
+												    <small>Explain <strong>crisply</strong> about your idea in 700 words and clearly mention what are its different solution. Also write unique selling point USP of your idea.</small><br>
 												     <span style="color:red" ng-show="myIdeas.description.$dirty && myIdeas.description.$invalid">
 													 <span ng-show="myIdeas.description.$error.required"></span></span>
 													 <span ng-show="myIdeas.description.$error.minlength" style="color:red">Ideas Description Should Contain Atleast 130 Characters </span>
@@ -304,7 +314,7 @@ document.getElementById('viewdetails').innerHTML=val;
 												
 									        </div>
 									        <div class="modal-footer">
-									          <button type="submit" class="btn btn-info btn-md active" ng-disabled="myIdeas.keyuser.$dirty && myIdeas.keyuser.$invalid && myIdeas.keyuser.$error.pattern||myIdeas.targetmarket.$dirty && myIdeas.targetmarket.$invalid && myIdeas.targetmarket.$error.pattern || myIdeas.description.$error.minlength" >Submit</button>  
+									          <button type="submit" class="btn btn-info btn-md active" ng-disabled="myIdeas.keyuser.$dirty && myIdeas.keyuser.$invalid && myIdeas.keyuser.$error.pattern||myIdeas.targetmarket.$dirty && myIdeas.targetmarket.$invalid && myIdeas.targetmarket.$error.pattern || myIdeas.description.$error.minlength || myIdeas.ideas.$error.maxlength" >Submit</button>  
 									          <button type="button" class="btn btn-warning btn-md active" data-dismiss="modal">Close</button>
 									        </div>
 									      </div>
@@ -341,10 +351,10 @@ document.getElementById('viewdetails').innerHTML=val;
 							     	    	{%>
 							     	    		 <tbody>
 								            <tr>
-									        <td align="center"><b><%=dbideasubmitid %></b></td>
-									        <td align="center"><p class="table-idea"><%=dbideatitle %></p></td>
-									        <td align="center"><p class="table-data "><%=dbideadate %></p></td>
-									        <td align="center"><p class="table-data "><%=dbideastatus %></p></td>
+									        <td align="center"><%=dbideasubmitid %></td>
+									        <td align="table-idea"><p class="" style="width: 35em;border: 0px solid #000000;word-wrap: break-word;"><%=dbideatitle %></p></td>
+									        <td align="center"><p class=" " ><%=dbideadate %></p></td>
+									        <td align="center"><p class=" "><%=dbideastatus %></p></td>
 									        <td align="center"><p class=" fload_right table-data-button">
 											<a class="btn btn-xs btn-info active"  target="_blank" disabled >My Support</a>
 											<a class="btn btn-xs btn-warning active"  target="_blank" disabled>Update Progress</a>
@@ -356,10 +366,10 @@ document.getElementById('viewdetails').innerHTML=val;
 							     	    	
 							     	      <tbody>
 								          <tr>
-									        <td align="center"><b><%=dbideasubmitid %></b></td>
-									        <td align="center"><p class="table-idea"><a href="begin-view-all-details.jsp?dbideaid=<%=dbideasubmitid %>" target="_blank"><%=dbideatitle %></a></p></td>
-									        <td align="center"><p class="table-data "><%=dbideadate %></p></td>
-									        <td align="center"><p class="table-data "><%=dbideastatus %></p></td>
+									        <td align="center"><%=dbideasubmitid %></td>
+									        <td><p class="table-idea" style="width: 35em;border: 0px solid #000000;word-wrap: break-word;"><a href="begin-view-all-details.jsp?dbideaid=<%=dbideasubmitid %>" target="_blank"><%=dbideatitle %></a></p></td>
+									        <td align="center"><p class=" "><%=dbideadate %></p></td>
+									        <td align="center"><p class=" "><%=dbideastatus %></p></td>
 									        <td align="center"><p class=" fload_right table-data-button">
 											<a class="btn btn-xs btn-info active" name="ideaid" href="begin-user-view-idea.jsp?ideaid=<%=dbideasubmitid %>" target="_blank" >My Support</a>
 											<a class="btn btn-xs btn-warning active" href="begin-update-progress.jsp?dbideaid=<%=dbideasubmitid %>" target="_blank">Update Progress</a>
@@ -586,15 +596,14 @@ document.getElementById('viewdetails').innerHTML=val;
 																			      <label for="inputsm" style="padding-left: 15px;">Time Period</label><br>
 																				  <div class=" col-sm-6">
 																				    <label for="inputsm"><small>From (Format : MM/DD/YYYY)</small></label>
-																				   
-																				    <input class="form-control input-md" id="inputsm" type="text" name="fromdate" ng-model="from" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" required/>
+																				    <input class="form-control input-md" id="from" type="text" name="fromdate" ng-model="from" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" required/>
 																				      <span style="color:red" ng-show="educationForm.from.$dirty && educationForm.from.$invalid">
 																				      <span ng-show="educationForm.from.$error.required">Please specify Date</span></span>
 																					  <span ng-show="educationForm.from.$error.pattern" style="color:red"> Incorrect Format, should be MM/DD/YYYY.</span>
 																				  </div>
 																				  <div class=" col-sm-6">
 																				    <label for="inputsm"><small>To (Format : MM/DD/YYYY)</small></label>
-																				    <input class="form-control input-md" id="inputsm" type="text" name="todate" ng-model="to" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" required/>
+																				    <input class="form-control input-md" id="to" type="text" name="todate" ng-model="to" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" required/>
 																					  <span style="color:red" ng-show="educationForm.to.$dirty && educationForm.to.$invalid">
 																				      <span ng-show="educationForm.to.$error.required">Please specify Date</span></span>
 																					  <span ng-show="educationForm.to.$error.pattern" style="color:red"> Incorrect Format, should be MM/DD/YYYY.</span>

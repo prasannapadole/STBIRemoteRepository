@@ -71,6 +71,7 @@ public void init(ServletConfig config) throws ServletException
 			String internshipdesc=request.getParameter("interndiscrip");
 			String status=request.getParameter("status");
 			String applydate=request.getParameter("applydate");
+			String internshipdeletedesc="-";
 		    String adminconfirmation="-";
 	//..........................................................................................................
 		    long instituteid=0;
@@ -83,14 +84,7 @@ public void init(ServletConfig config) throws ServletException
 			ps.setString(1,upgrademybusinessemail);
 			rs1=ps.executeQuery();
 			long dbmybusinessId=0;
-			String dbindustryname="",dbcompanydescription=""; 
-					while(rs1.next())
-					{
-						dbmybusinessId=rs1.getLong(1);
-						dbindustryname=rs1.getString(2);
-						dbcompanydescription=rs1.getString(3);
-					}
-					
+			
 					String query="select max(internsId) from upgrademybusinesssinternship";//select max of id from ideasumit table 
 					PreparedStatement pst=con.prepareStatement(query);
 					ResultSet rs=pst.executeQuery();
@@ -107,7 +101,7 @@ public void init(ServletConfig config) throws ServletException
 					{
 						internshipid=dbinternsId+1; 
 					}		
-					String quuery1="insert into upgrademybusinesssinternship values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  //insert data into ideasubmit table 
+					String quuery1="insert into upgrademybusinesssinternship values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  //insert data into ideasubmit table 
 					PreparedStatement pst1=con.prepareStatement(quuery1);
 				   pst1.setLong(1,internshipid);
 			       pst1.setString(2,titleofinternship);
@@ -124,11 +118,12 @@ public void init(ServletConfig config) throws ServletException
 			     
 			       pst1.setString(12,status );
 			       pst1.setString(13,applydate );
-			       pst1.setLong(14,dbmybusinessId);
-			       pst1.setString(15,adminconfirmation);
-			       pst1.setLong(16,instituteid);
-			       pst1.setInt(17,institutedisplay);
-			       pst1.setString(18,institutedeleteinternshiprequest);
+			       pst1.setString(14,internshipdeletedesc );
+			       pst1.setLong(15,dbmybusinessId);
+			       pst1.setString(16,adminconfirmation);
+			       pst1.setLong(17,instituteid);
+			       pst1.setInt(18,institutedisplay);
+			       pst1.setString(19,institutedeleteinternshiprequest);
 			       int i=pst1.executeUpdate(); //record inserted successfully.
 					if(i>0)
 					{

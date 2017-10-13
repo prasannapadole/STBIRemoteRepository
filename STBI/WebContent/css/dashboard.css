@@ -180,15 +180,13 @@ li > a > .badges {
 	font-size: 16px;
 }
 p.table-idea {
-	width:auto; 
+	width:300px; 
     border: none;
-    font-size: 17px;
     font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif; 
 }
 p.table-data{
 	width: 100px; 
     border: 0px solid #ffffff;
-    font-size: 17px;
     text-align: center;
     font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif; 
 }

@@ -14,6 +14,7 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+	      <script data-require="ui-bootstrap@*" data-semver="0.10.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 	    <script src="js/sig-dashboard.js"></script>
 	    <script src="js/city-navbar.js"></script> </head>
 	<body>
@@ -212,11 +213,11 @@
 									      <div class="modal-content">
 									        <div class="modal-header">
 									          <button type="button" class="close" data-dismiss="modal">&times;</button>
-									          <h5 class="modal-title">Say reason for deleting your idea.</h5>
+									          <h5 class="modal-title">In Progress</h5>
 									        </div>
-									        <div class="modal-body">
+									      <%--<div class="modal-body">
 									          <textarea rows="" cols="" class="form-control"></textarea>
-									        </div>
+									        </div> --%> 
 									        <div class="modal-footer">
 									          <button type="Submit" class="btn btn-warning active" data-dismiss="modal">Submit</button>
 									          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -273,11 +274,13 @@
 														    </thead>
 														   <%
 														    String projectStatus="Approved";
-															int sigdisplayproject=0;
-														    String quer1="select projectId,projecttitle,status,applydate from upgrademybusinessprojectinfo where status=? or sigdisplay=?";
+														   int sigdisplayproject=0;
+															
+														    String quer1="select projectId,projecttitle,status,applydate from upgrademybusinessprojectinfo where status=? and sigdisplay=?";
 														    ps1=con.prepareStatement(quer1);
 														    ps1.setString(1,projectStatus);
 														    ps1.setInt(2,sigdisplayproject);
+														   
 														    r1=ps1.executeQuery();
 														    long dbprojectid=0;
 														    String dbprojecttitle="",dbstatuss="",dbapplydatee="";
@@ -296,7 +299,7 @@
 														        <td align="center"><p class="table-data"><%=dbstatuss %></p></td>
 														        <td align="center"><p class=" fload_right table-data-button">
 																	<a class="btn btn-xs btn-info active" href="sig-project-details.jsp?dbprojectId=<%=dbprojectid %>" target="">Apply</a>
-																	<a class="btn btn-xs btn-warning active" href="sig-project-upgrade-progress.jsp" target="_blank">Update Progress</a>
+																	<button class="btn btn-xs btn-warning active" href="sig-project-upgrade-progress.jsp" target="_blank">Update Progress</button>
 																	<a button type="button" class="btn btn-xs btn-info active" href="sig-deleteprojectrequest.jsp?projectid=<%=dbprojectid %>"><i class="fa fa-trash" style="font-size:18px"></i></a>
 																</p></td>
 														      </tr>
@@ -850,7 +853,7 @@
 																		<form name="mileForm" action="./Milestone" method="post">
 																			  <div class="form-group">
 																			    <label for="inputsm">Date: (Format : MM/DD/YYYY)</label>
-																				 <input class="form-control input-md" id="inputsm" type="text" name="dates" ng-model="dates" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" required/>
+																				 <input class="form-control input-md" id="inputsm" datepicker-popup="MM/dd/yyyy" type="text" name="dates" ng-model="dates"  required/>
 																				 <span style="color:red" ng-show="mileForm.dates.$dirty && mileForm.dates.$invalid">
 																				 <span ng-show="mileForm.dates.$error.required">Please specify Date</span></span>
 																			     <span ng-show="mileForm.dates.$error.pattern" style="color:red"> Incorrect Format, should be MM/DD/YYYY.</span>
@@ -937,8 +940,8 @@
 																    </div>
 																     <div class="form-group">
 																      <p class="control-label col-sm-3">Description:</p>
-																      <div class="col-sm-8"> 
-																        <p class="font-color"><%=dbdescription %></p>
+																      <div class="col-sm-8" > 
+																        <p class="font-color" style="width: 35em;border: 0px solid #000000;word-wrap: break-word;"><%=dbdescription %></p>
 																      </div>
 																    </div><hr>
 																 
@@ -963,7 +966,7 @@
 																		<form name="skillform" action="./AddSkillCommercialisation" method="post">
 																			  <div class="form-group">
 																			    <label for="inputsm">Title of Technology/ Innovation / Solution:</label>
-																			    <input class="form-control input-sm" id="inputsm" type="text" name="title" ng-model="title" ng-pattern="/^[a-zA-Z ]{1,200}$/" required/>
+																			    <input class="form-control input-sm" id="inputsm" type="text" name="title" ng-model="title" ng-pattern="" required/>
 																			   <span style="color:red" ng-show="skillform.title.$dirty && skillform.title.$invalid">
 																				 <span ng-show="skillform.title.$error.required">Please specify Technology name</span></span>
 																			     <span ng-show="skillform.title.$error.pattern" style="color:red">Numeric and special Characters are Not Allowed</span>
@@ -977,14 +980,14 @@
 																			  </div>
 																			 <div class="form-group">
 																			    <label for="inputsm"> Number Of Faculty Member:</label>
-																			  <input class="form-control input-sm" id="inputsm" type="text" name="member" ng-model="member" ng-pattern="numberonly" required/>
+																			  <input class="form-control input-sm" id="inputsm" type="text" name="member" ng-model="member" ng-pattern="/^[0-9]{1,100}$/" required/>
 																			     <span style="color:red" ng-show="skillform.member.$dirty && skillform.member.$invalid">
 																				 <span ng-show="skillform.member.$error.required">Please specify Number Of Faculty Member</span></span>
 																			     <span ng-show="skillform.member.$error.pattern" style="color:red">Alphabet and special Characters are Not Allowed</span>
 																			  </div>
 																			  <div class="form-group">
 																			    <label for="inputsm">Add Number of Student:</label>
-																			   <input class="form-control input-sm" id="inputsm" type="text" name="students" ng-model="students" ng-pattern="numberonly" required/> 
+																			   <input class="form-control input-sm" id="inputsm" type="text" name="students" ng-model="students" ng-pattern="/^[0-9]{1,100}$/" required/> 
 																			    <span style="color:red" ng-show="skillform.students.$dirty && skillform.students.$invalid">
 																				 <span ng-show="skillform.students.$error.required">Please specify Number Of Student</span></span>
 																			     <span ng-show="skillform.students.$error.pattern" style="color:red">Alphabet and special Characters are Not Allowed</span>

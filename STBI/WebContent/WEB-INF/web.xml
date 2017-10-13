@@ -98,6 +98,14 @@
     <url-pattern>/RequestToDeleteIdea</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>RequestToDeleteUpdateProgress</servlet-name>
+    <servlet-class> com.user.useredit.personaldetails.RequestToDeleteUpdateProgress</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestToDeleteUpdateProgress</servlet-name>
+    <url-pattern>/RequestToDeleteUpdateProgress</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>EducationEdit</servlet-name>
     <servlet-class>com.user.useredit.personaldetails.EducationEdit </servlet-class>
   </servlet>
@@ -673,6 +681,28 @@
     <servlet-name>UpgradeBusinessMatchEmail</servlet-name>
     <url-pattern>/UpgradeBusinessMatchEmail</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>UpgradeRequestToDeleteProject</servlet-name>
+    <servlet-class> com.upgrademybusiness.deleteproject_internship.UpgradeRequestToDeleteProject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpgradeRequestToDeleteProject</servlet-name>
+    <url-pattern>/UpgradeRequestToDeleteProject</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>UpgradeRequestToDeleteInternship</servlet-name>
+    <servlet-class> com.upgrademybusiness.deleteproject_internship.UpgradeRequestToDeleteInternship</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpgradeRequestToDeleteInternship</servlet-name>
+    <url-pattern>/UpgradeRequestToDeleteInternship</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
   <welcome-file-list>
     <welcome-file>begin-login.jsp</welcome-file>
   </welcome-file-list>

@@ -55,6 +55,7 @@ public class IdeasubmitUpdateProgress extends HttpServlet {
 		    String milestone=request.getParameter("mname");
 		    String milestonetype=request.getParameter("response");
 		    String milestonedescription=request.getParameter("description");
+		    String deleteupgrade="-";
 		    
 		    String query="select userId from user where emailid=?";
 			pst=con.prepareStatement(query);
@@ -81,15 +82,16 @@ public class IdeasubmitUpdateProgress extends HttpServlet {
 		      {
 		    	ideaupdateprogressid=dbideaupdateprogressId+1;
 		      }
-		 query1="insert into user_ideasubmit_updateprogress values(?,?,?,?,?,?,?)";
+		 query1="insert into user_ideasubmit_updateprogress values(?,?,?,?,?,?,?,?)";
 	     pst1=con.prepareStatement(query1);
 	 	 pst1.setLong(1,ideaupdateprogressid);
 	 	 pst1.setString(2,currentdate);
 	 	 pst1.setString(3,milestone);
 	 	 pst1.setString(4,milestonetype);
 	 	 pst1.setString(5,milestonedescription);
-	 	 pst1.setLong(6,dbuserid);
-	 	 pst1.setLong(7,ideaid);
+	 	 pst1.setString(6,deleteupgrade);
+	 	 pst1.setLong(7,dbuserid);
+	 	 pst1.setLong(8,ideaid);
 		 int i=pst1.executeUpdate();	
 		 if(i>0)
 		     {

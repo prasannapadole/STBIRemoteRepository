@@ -56,7 +56,7 @@ public class InstituteRequesttoDeleteproject extends HttpServlet {
 	      
 	    long projectid=Long.parseLong(request.getParameter("projectid"));
 	    String deletedescription=request.getParameter("reason");
-	     int institutedisplay=1;
+	    
 	     String query="select instituteId from instituteregi where emailid=?";
 	     pst=con.prepareStatement(query);
 	     pst.setString(1,institutormail);
@@ -67,12 +67,11 @@ public class InstituteRequesttoDeleteproject extends HttpServlet {
 	    	 dbinstituteid=rs.getLong(1);
 	    	}
 	     
-	     String query1="update upgrademybusinessprojectinfo set instituteId=?,institutedisplay=?,institutedeletedesc=? where projectId=?";
+	     String query1="update upgrademybusinessprojectinfo set instituteId=?,institutedeletedesc=? where projectId=?";
 	     pst1=con.prepareStatement(query1);
 	     pst1.setLong(1,dbinstituteid);
-	     pst1.setInt(2,institutedisplay);
-	     pst1.setString(3,deletedescription);
-	     pst1.setLong(4,projectid);
+	     pst1.setString(2,deletedescription);
+	     pst1.setLong(3,projectid);
 	     
 	     int i=pst1.executeUpdate();
 	     

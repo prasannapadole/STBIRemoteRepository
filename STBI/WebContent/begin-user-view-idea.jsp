@@ -380,7 +380,7 @@
 					      </div>
 					       
 					     <%
-						     }%>
+					     }%>
 					    
 				    	
 					</form>
@@ -418,7 +418,6 @@
 							</div>
 						</div>
 				</div>
-				
 				<div id="offer" class="tab-pane fade">
 				    <div class="panel panel-default card panels">
 				    	<div class="panel-body panels">

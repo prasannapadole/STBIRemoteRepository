@@ -14,6 +14,7 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+	    <script data-require="ui-bootstrap@*" data-semver="0.10.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 	    <script src="js/city-navbar.js"></script>
 	    <script src="js/sig-dashboard.js"></script>
     </head>
@@ -216,78 +217,21 @@
 									<div class="col-md-12">
 											<div class="tabbable-line">
 												<ul class="nav nav-tabs container-opportunity">
-												
-													<li>
-														<a href="#project" data-toggle="tab" class="tab-sub-font-grorgia">PROJECTS</a>
-													</li>
-														<li class="active">
-														<a href="#consultancy" data-toggle="tab" class="tab-sub-font-grorgia">CONSULTANCY</a>
+													<li class="active">
+														<a href="#project active" data-toggle="tab" class="tab-sub-font-grorgia">PROJECTS</a>
 													</li>
 													<li>
 														<a href="#grand-funding" data-toggle="tab" class="tab-sub-font-grorgia">GRANTS AND FUNDING</a>
+													</li>
+													<li>
+														<a href="#consultancy" data-toggle="tab" class="tab-sub-font-grorgia">CONCULTANCY</a>
 													</li>
 													<li>
 														<a href="#halcathons" data-toggle="tab" class="tab-sub-font-grorgia">HACKATHONS </a>
 													</li>
 												</ul><hr>
 												<div class="tab-content">
-													<div class="tab-pane active" id="consultancy">
-													    <button type="button" class="btn btn-info active" data-toggle="collapse" data-target="#proj">Filter</button>
-														<div id="proj" class="collapse center ">
-														   <form>
-														      <input type="search" name="googlesearch" placeholder="Department" class="search"> 
-														      <input type="search" name="googlesearch" placeholder="Keyword" class="search"> 
-														      <input type="search" name="googlesearch" placeholder="State" class="search">
-														      <input type="search" name="googlesearch" placeholder="City" class="search"> 
-														      <button class="btn btn-info btn-lg active "> <span class="glyphicon glyphicon-search "></span></button>
-														    </form>
-														</div>
-											    	    <hr>
-														<table class="table table-list table-hover card">
-														    <thead>
-														      <tr>
-														        <th class="table-fent-gray">ID</th>
-														        <th class="table-dark-gray">CONSULTANCY NAME</th>
-														        <th class="table-fent-gray">DATE </th>
-														        <th class="table-dark-gray">STATUS</th>
-														        <th class="table-fent-gray"></th>
-														      </tr>
-														    </thead>
-														    
-								 								<tbody>
-														    	 <tr>
-														        <td><b>111234</b></td>
-														        <td><p class="table-idea"><a href="sig-internship-details.jsp" target="_blank">STBI</a></p></td>
-														        <td><p class="table-data">04/12/2017</p></td>
-														        <td><p class="table-data">Pending</p></td>
-														        <td><p class=" fload_right table-data-button">
-																	<a class="btn btn-xs btn-info active"  target="">view</a>
-																	<a class="btn btn-xs btn-warning active" href="incubation-cunsultancy-upgrade-progress.jsp"  target="_blank">Update Progress</a>
-																	<button type="button" class="btn btn-xs btn-info active"  data-toggle="modal" data-target="#interndelete"><i class="fa fa-trash" style="font-size:18px"></i></button>
-																</p></td>
-														      	</tr>
-														    	</tbody>			
-														 </table><hr>
-														 <!-------------------------------Delete----------------------------------->
-														   <div class="modal fade" id="projectdelete" role="dialog">
-															    <div class="modal-dialog modal-md">
-															      <div class="modal-content">
-															        <div class="modal-header">
-															          <button type="button" class="close" data-dismiss="modal">&times;</button>
-															          <h5 class="modal-title">Say reason for deleting your idea ?</h5>
-															        </div>
-															        <div class="modal-body">
-															          <textarea rows="" cols="" class="form-control"></textarea>
-															        </div>
-															        <div class="modal-footer">
-															          <button type="Submit" class="btn btn-warning active" data-dismiss="modal">Submit</button>
-															          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-															        </div>
-															     </div>
-															  </div>
-														   </div>
-													</div>
-													<div class="tab-pane" id="project">
+													<div class="tab-pane active" id="project">
 													    <button type="button" class="btn btn-info active" data-toggle="collapse" data-target="#proj">Filter</button>
 														<div id="proj" class="collapse center ">
 														   <form>
@@ -309,8 +253,7 @@
 														        <th class="table-fent-gray"></th>
 														      </tr>
 														    </thead>
-														    <tbody>
-														     <%
+														    <%
 														    String projectStatus="Approved";
 															int incubationdisplayproject=0;
 														    String quer1="select projectId,projecttitle,status,applydate from upgrademybusinessprojectinfo where status=? and incubationdisplay=?";
@@ -336,32 +279,13 @@
 														        <td align="center"><p class="table-data"><%=dbapplydatee %></p></td>
 														        <td align="center"><p class=" fload_right table-data-button">
 																	<a class="btn btn-xs btn-info active" href="incubation-project-details.jsp?dbprojectId=<%=dbprojectid %>" target="">View</a>
-																	<a class="btn btn-xs btn-warning active" href="incubation-project-upgrade-progress.jsp" target="_blank">Update Progress</a>
+																	<button class="btn btn-xs btn-warning active" href="incubation-project-upgrade-progress.jsp" target="_blank">Update Progress</button>
 																	<a button type="button" class="btn btn-xs btn-info active" href="incubation-deleteprojectrequest.jsp?projectid=<%=dbprojectid %>"><i class="fa fa-trash" style="font-size:18px"></i></a>
 																</p></td>
 														      </tr>
 														    </tbody>
 														      <%} %>
-														    
 														 </table><hr>
-														 <!-------------------------------Delete----------------------------------->
-														   <div class="modal fade" id="projectdelete" role="dialog">
-															    <div class="modal-dialog modal-md">
-															      <div class="modal-content">
-															        <div class="modal-header">
-															          <button type="button" class="close" data-dismiss="modal">&times;</button>
-															          <h5 class="modal-title">Say reason for deleting your idea ?</h5>
-															        </div>
-															        <div class="modal-body">
-															          <textarea rows="" cols="" class="form-control"></textarea>
-															        </div>
-															        <div class="modal-footer">
-															          <button type="Submit" class="btn btn-warning active" data-dismiss="modal">Submit</button>
-															          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-															        </div>
-															     </div>
-															  </div>
-														   </div>
 													</div>
 													<div class="tab-pane" id="grand-funding">
 													    <button type="button" class="btn btn-info active" data-toggle="collapse" data-target="#grands">Filter</button>
@@ -392,31 +316,46 @@
 														        <td><p class="table-data">23/06/2017</p></td>
 														        <td><p class="table-data">Pending</p></td>
 														        <td><p class=" fload_right table-data-button">
-																	<a class="btn btn-xs btn-info active" href="" target="">View</a>
-																	<a class="btn btn-xs btn-warning active" href="incubation-grand-funding-upgrate-progress.jsp" target="_blank">Update Progress</a>
-																	<button type="button" class="btn btn-xs btn-info active"  data-toggle="modal" data-target="#granddelete"><i class="fa fa-trash" style="font-size:18px"></i></button>
+																	<a class="btn btn-xs btn-info active" href="incubation-grant-funding-details.jsp" target="_target">View</a>
 																</p></td>
 														      </tr>
 														    </tbody>
 														 </table><hr>
-														  <!-------------------------------Delete----------------------------------->
-														   <div class="modal fade" id="granddelete" role="dialog">
-															    <div class="modal-dialog modal-md">
-															      <div class="modal-content">
-															        <div class="modal-header">
-															          <button type="button" class="close" data-dismiss="modal">&times;</button>
-															          <h5 class="modal-title">Say reason for deleting your Grand and Funding ?</h5>
-															        </div>
-															        <div class="modal-body">
-															          <textarea rows="" cols="" class="form-control"></textarea>
-															        </div>
-															        <div class="modal-footer">
-															          <button type="Submit" class="btn btn-warning active" data-dismiss="modal">Submit</button>
-															          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-															        </div>
-															     </div>
-															  </div>
-														   </div>
+													</div>
+													<div class="tab-pane" id="consultancy">
+													    <button type="button" class="btn btn-info active" data-toggle="collapse" data-target="#grands">Filter</button>
+														<div id="grands" class="collapse center ">
+														   <form>
+														      <input type="search" name="googlesearch" placeholder="Department" class="search"> 
+														      <input type="search" name="googlesearch" placeholder="Keyword" class="search"> 
+														      <input type="search" name="googlesearch" placeholder="State" class="search">
+														      <input type="search" name="googlesearch" placeholder="City" class="search"> 
+														      <button class="btn btn-info btn-lg active "> <span class="glyphicon glyphicon-search "></span></button>
+														    </form>
+														</div>
+											    	    <hr>
+									                    <table class="table table-list table-hover card">
+														    <thead>
+														      <tr>
+														        <th class="table-fent-gray">ID</th>
+														        <th class="table-dark-gray">LIST OF CONSULTANCY</th>
+														        <th class="table-fent-gray">DATE </th>
+														        <th class="table-dark-gray">STATUS</th>
+														        <th class="table-fent-gray"></th>
+														      </tr>
+														    </thead>
+														    <tbody>
+														     <tr>
+														        <td><b>325335</b></td>
+														        <td><p class="table-idea"><a href="incubation-consultancy-details.jsp" target="_blank">The English Wikipedia is the English-language edition of the free online encyclopedia Wikipedia.The English Wikipedia is the English-language edition of the free online encyclopedia Wikipedia.</a></p></td>
+														        <td><p class="table-data">23/06/2017</p></td>
+														        <td><p class="table-data">Pending</p></td>
+														        <td><p class=" fload_right table-data-button">
+																	<a class="btn btn-xs btn-info active" href="incubation-consultancy-details.jsp" target="_target">View</a>
+																</p></td>
+														      </tr>
+														    </tbody>
+														 </table><hr>
 													</div>
 													<div class="tab-pane" id="halcathons">
 														<button type="button" class="btn btn-info active" data-toggle="collapse" data-target="#hackas">Filter</button>
@@ -434,7 +373,7 @@
 														    <thead>
 														      <tr>
 														        <th class="table-fent-gray">ID</th>
-														        <th class="table-dark-gray">LIST OF HALCATHONS</th>
+														        <th class="table-dark-gray">LIST OF HACKATHONS</th>
 														        <th class="table-fent-gray">DATE </th>
 														        <th class="table-dark-gray">STATUS</th>
 														        <th class="table-fent-gray"></th>
@@ -443,35 +382,15 @@
 														    <tbody>
 														     <tr>
 														        <td><b>325335</b></td>
-														        <td><p class="table-idea">The English Wikipedia is the English-language edition of the free online encyclopedia Wikipedia.The English Wikipedia is the English-language edition of the free online encyclopedia Wikipedia.</p></td>
+														        <td><p class="table-idea"><a href="incubation-hackathons-details.jsp" target="_blank">The English Wikipedia is the English-language edition of the free online encyclopedia Wikipedia.The English Wikipedia is the English-language edition of the free online encyclopedia Wikipedia.</a></p></td>
 														        <td><p class="table-data">23/06/2017</p></td>
 														        <td><p class="table-data">Pending</p></td>
 														        <td><p class=" fload_right table-data-button">
-																	<a class="btn btn-xs btn-info active" href="" target="">View</a>
-																	<a class="btn btn-xs btn-warning active" href="incubation-hackathons-upgrate-progress.jsp" target="_blank">Update Progress</a>
-																	<button type="button" class="btn btn-xs btn-info active"  data-toggle="modal" data-target="#hackathonsdelete"><i class="fa fa-trash" style="font-size:18px"></i></button>
+																	<a class="btn btn-xs btn-info active" href="incubation-hackathons-details.jsp" target="_target">View</a>
 																</p></td>
 														      </tr>
 														    </tbody>
 														 </table><hr>
-														 <!-------------------------------Delete----------------------------------->
-														   <div class="modal fade" id="hackathonsdelete" role="dialog">
-															    <div class="modal-dialog modal-md">
-															      <div class="modal-content">
-															        <div class="modal-header">
-															          <button type="button" class="close" data-dismiss="modal">&times;</button>
-															          <h5 class="modal-title">Say reason for deleting your Hackathon ?</h5>
-															        </div>
-															        <div class="modal-body">
-															          <textarea rows="" cols="" class="form-control"></textarea>
-															        </div>
-															        <div class="modal-footer">
-															          <button type="Submit" class="btn btn-warning active" data-dismiss="modal">Submit</button>
-															          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-															        </div>
-															     </div>
-															  </div>
-														   </div>
 													</div>
 												</div>
 											</div>
@@ -668,15 +587,15 @@
 																			  </div>
 																			 <div class="form-group">
 																			     <label for="inputsm">Date of Start-up: (Format : MM/DD/YYYY)</label>
-																				 <input class="form-control input-md" id="inputsm" type="text" name="dates" ng-model="dates" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" required/>
+																				 <input type="text" class="form-control " datepicker-popup="MM/dd/yyyy" name="dates" ng-model="dates" ng-pattern="" required/>
 																				 <span style="color:red" ng-show="incubateeForm.dates.$dirty && incubateeForm.dates.$invalid">
 																				 <span ng-show="incubateeForm.dates.$error.required">Please specify Date</span></span>
-																			     <span ng-show="incubateeForm.dates.$error.pattern" style="color:red"> Incorrect Format, should be MM/DD/YYYY.</span>
+																			    <span ng-show="incubateeForm.dates.$error.pattern" style="color:red"> Incorrect Format, should be MM/DD/YYYY.</span>
 																			
 																			  </div>
 																			  <div class="form-group">
 																			    <label for="inputsm">Legal Status:</label>
-																			    <select class="form-control" name="legalstatus"  required>
+																			    <select class="form-control" name="legalstatus" ng-model="legalstatus"  required>
 																			    	<option value="-" selected="selected">Select</option>
 																			    	<option value="Unregistered Beginner">Unregistered Beginner</option>
 																			    	<option value="Registered Startup">Registered Startup</option>
@@ -684,11 +603,11 @@
 																			    	<option value="Private Limited">Private Limited</option>
 																			    	<option value="LLP">LLP</option>
 																			    	<option value="Public Limited">Public Limited</option>
-																			    	<option value="other">Other</option>
+																			    	<option value="Other">Other</option>
 																			    </select><br>
 																			    <div ng-switch="legalstatus">
 																			    	<div ng-switch-when="other">
-																			    		<input type="text" class="form-control" name="legalstatus" placeholder="Please Mention" required> 
+																			    		<input type="text" class="form-control" name="other" placeholder="Please Mention" required> 
 																			    	</div>
 																			    </div>
 																			  </div>
@@ -803,7 +722,7 @@
 																		<form name="mileForm" action="./IncubationMilestones" method="post">
 																			  <div class="form-group">
 																			    <label for="inputsm">Date: (Format : MM/DD/YYYY)</label>
-																				 <input class="form-control input-md" id="inputsm" type="text" name="dates" ng-model="dates" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" required/>
+																				 <input class="form-control input-md" id="inputsm" datepicker-popup="MM/dd/yyyy" type="text" name="dates" ng-model="dates" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" required/>
 																				 <span style="color:red" ng-show="mileForm.dates.$dirty && mileForm.dates.$invalid">
 																				 <span ng-show="mileForm.dates.$error.required">Please specify Date</span></span>
 																			     <span ng-show="mileForm.dates.$error.pattern" style="color:red"> Incorrect Format, should be MM/DD/YYYY.</span>

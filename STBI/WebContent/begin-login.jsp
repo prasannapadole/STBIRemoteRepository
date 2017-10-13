@@ -13,42 +13,13 @@
 	  <script src="https://cdn.jsdelivr.net/npm/places.js@1.4.15"></script>
 	  <script src="js/begin-login.js"></script>
 	  <script src="js/city-navbar.js"></script>
-	  
-	  
-	  <script type="text/javascript">
-	    var request;  
-		function sendInfo(){  
-	    var email=document.myForm.email.value;  
-		var url="Matchemail?email="+email;  
-		if(window.XMLHttpRequest){  
-		request=new XMLHttpRequest();  
-		}  
-		else if(window.ActiveXObject){  
-		request=new ActiveXObject("Microsoft.XMLHTTP");  
-		}  
-		try{  
-		request.onreadystatechange=getInfo;  
-		request.open("POST",url,true);  
-		request.send();  
-		}catch(e){alert("Unable to connect to server");}  
-		}  
-		  
-		
-		function getInfo(){  
-		if(request.readyState==4){  
-		var val=request.responseText;  
-		document.getElementById('mylocation').innerHTML=val;  
-		}  
-		} 
-		</script>  
-	</head>
+	  <script type="text/javascript" src="mail_Js/begin_login.js"></script>
+ </head>
   <!------------------------------------------Body------------------------------------------------------>
-  <body class="has-bg-img">
-  
-   <!--   <center>
+          <body class="has-bg-img">
+           <!--   <center>
           <img src="logo/STBILOGO.jpg">
-     </center> 
-     hello prasanna-->
+     </center> -->
      <div  >
             <div class="containers">  
 			   <ul class="nav nav-tabs container-opportunity">
@@ -59,8 +30,6 @@
 						<a href="#registration" data-toggle="tab" class="font">New Registration</a>
 					</li>
 			  </ul>
-			  
-			  
 		  	<div class="tab-content">
 			    <div id="login" class="tab-pane fade in active">
 			        <div class="panel panel-default panel-top-border card">

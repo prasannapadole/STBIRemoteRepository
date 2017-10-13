@@ -44,16 +44,13 @@ public class Institute_RequestDeleteInternship extends HttpServlet {
 		{
 		    response.setContentType("text/html");
 		    PrintWriter out=response.getWriter();
-		    
-
-		      try
+		     try
 		      {
-		    	  
 		      HttpSession session=request.getSession();
 		      String institutormail=(String)session.getAttribute("institutormail");
 		      long internsId=Long.parseLong(request.getParameter("internsId"));
 		      String deletedescription=request.getParameter("reason");
-		      int institutedisplay=1;
+		     
 		      String query="select instituteId from instituteregi where emailid=?";
 		      pst=con.prepareStatement(query);
 		      pst.setString(1,institutormail);
@@ -64,14 +61,13 @@ public class Institute_RequestDeleteInternship extends HttpServlet {
 		    	 dbinstituteid=rs.getLong(1);
 		    	}
 		     
-			     String query1="update upgrademybusinesssinternship set instituteId=?,institutedisplay=?,institutedeletedesc=? where internsId=?";
+			     String query1="update upgrademybusinesssinternship set instituteId=?,institutedeletedesc=? where internsId=?";
 			     pst1=con.prepareStatement(query1);
 			     pst1.setLong(1,dbinstituteid);
-			     pst1.setInt(2,institutedisplay);
-			     pst1.setString(3,deletedescription);
-			     pst1.setLong(4,internsId);
+			     pst1.setString(2,deletedescription);
+			     pst1.setLong(3,internsId);
 		     
-			     int i=pst1.executeUpdate();
+		    int i=pst1.executeUpdate();
 		     
 		    out.println("<html><body style=background-color:#F0FFF0>");
 		    out.println("<script type=\"text/javascript\">");
@@ -80,7 +76,7 @@ public class Institute_RequestDeleteInternship extends HttpServlet {
 	        out.println("</script>");
 	        out.println("</body></html>");  
 		     
-		       }
+		      }
 		      catch(Exception e)
 		      	{
 		    	  out.println(e);

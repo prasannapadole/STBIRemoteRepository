@@ -217,7 +217,7 @@
 							                			<div class="col-sm-12">
 							                				<label class="name-heading font-heading"><%=dbmilestone %></label>
 							                				<label class="name-type"><%=dbmilestontype %></label>
-							                				<button data-toggle="modal" data-target="#delete" class="fload_right buttons"><i class="fa fa-trash-o " style="font-size:24px"></i></button>
+							                				<a button  class="fload_right buttons" href="begin_upgradeprogress_deleterequest.jsp?ideaupdateprogressId=<%=dbideaupdateprogressId%>"><i class="fa fa-trash-o " style="font-size:24px"></i></a>
 							                				<br><small class="date"><%=dbcurrentdate %></small>
 							                			</div>
 							                			<div class="col-sm-12">
@@ -226,26 +226,29 @@
 							                		</div>
 										       </div>
 										   </div>
-										 
 										   <!----------------------------Deleting---------------------------- -->
+										<%--    <form action="./Hello">
 										    <div class="modal fade" id="delete" role="dialog">
 											    <div class="modal-dialog modal-md">
 											      <div class="modal-content">
 											        <div class="modal-header">
 											          <button type="button" class="close" data-dismiss="modal">&times;</button>
-											          <h5 class="modal-title">Say reason for deleting your idea.</h5>
+											          <h5 class="modal-title">Say reason for deleting your Update Progress.</h5>
 											        </div>
+											      
 											        <div class="modal-body">
 											          <textarea rows="" cols="" class="form-control"></textarea>
 											        </div>
 											        <div class="modal-footer">
-											          <button type="Submit" class="btn btn-warning active" data-dismiss="modal">Submit</button>
+											          <button type="Submit" class="btn btn-warning active"  value="<%=dbideaupdateprogressId %>">Submit</button>
 											          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 											        </div>
+											      
 											      </div>
+											     
 											    </div>
 											</div>
-										
+										   </form> --%>  
 										
 									<%} %>
 									 

@@ -44,8 +44,9 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 						//  webres.data = "success";
 						// webres.result= true;
 						session.setAttribute("mentoremail",mentoremail);
-						rd= request.getRequestDispatcher("/mentor-dashboard.jsp");
-						rd.forward(request, response);
+						response.sendRedirect("mentor-dashboard.jsp");
+						//rd= request.getRequestDispatcher("/mentor-dashboard.jsp");
+						//rd.forward(request, response);
 						}
 					else
 						{

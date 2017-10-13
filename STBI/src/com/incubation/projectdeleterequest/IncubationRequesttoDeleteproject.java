@@ -48,14 +48,11 @@ public class IncubationRequesttoDeleteproject extends HttpServlet {
 		      try
 		      {
 		    	  
-		      HttpSession session=request.getSession();
-		     String incubationemail=(String)session.getAttribute("incubationemail");
-		      
-		      
-		      
+		    HttpSession session=request.getSession();
+		    String incubationemail=(String)session.getAttribute("incubationemail");
 		    long projectid=Long.parseLong(request.getParameter("projectid"));
 		    String deletedescription=request.getParameter("reason");
-		     int incubationdisplay=1;
+		    
 		     String query="select incubationId from incubationregi where emailid=?";
 	  	     pst=con.prepareStatement(query);
 	  	     pst.setString(1,incubationemail);
@@ -66,15 +63,13 @@ public class IncubationRequesttoDeleteproject extends HttpServlet {
 	  	    	dbincubationid=rs.getLong(1);
 	  	    	}
 	  	     
-	  	     String query1="update upgrademybusinessprojectinfo set incubationId=?,incubationdisplay=?,incubationdeletedesc=? where projectId=?";
+	  	     String query1="update upgrademybusinessprojectinfo set incubationId=?,incubationdeletedesc=? where projectId=?";
 	  	     pst1=con.prepareStatement(query1);
 	  	     pst1.setLong(1,dbincubationid);
-	  	     pst1.setInt(2,incubationdisplay);
-	  	     pst1.setString(3,deletedescription);
-	  	     pst1.setLong(4,projectid);
+	  	     pst1.setString(2,deletedescription);
+	  	     pst1.setLong(3,projectid);
 	  	     
 	  	     int i=pst1.executeUpdate();
-	  	     
 	  	     
 	  	    out.println("<html><body style=background-color:#F0FFF0>");
 		    out.println("<script type=\"text/javascript\">");
@@ -89,4 +84,4 @@ public class IncubationRequesttoDeleteproject extends HttpServlet {
 		    	  out.println(e);
 		      	}
 		      }
-}
+            }

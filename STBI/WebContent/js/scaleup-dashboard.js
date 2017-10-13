@@ -12,23 +12,21 @@ angular.module("scaleupDashboard",[]).controller("scaleupctrldashboard", functio
 		 
 		
 	 
-	 $scope.rateFunction = function(rating) { };
-	 $scope.setFile = function(element) {
-         $scope.$apply(function($scope) {
-             $scope.theFile = element.files[0];
-             $scope.FileMessage = '';
-             var filename = $scope.theFile.name;
-             console.log(filename.length)
-             var index = filename.lastIndexOf(".");
-             var strsubstring = filename.substring(index, filename.length);
-             if (strsubstring == '.pdf' || strsubstring == '.doc')
-             {
-               console.log('File Uploaded sucessfully');
-             }
-             else {
-                 $scope.theFile = '';
-                   $scope.FileMessage = 'please upload correct File Name, File extension should be .pdf, .doc or';
-             }
-         });
-     };
+	 $scope.products = [];
+     $scope.addItem = function () {
+         $scope.errortext = "";
+         if (!$scope.addMe) {return;}        
+         if ($scope.products.indexOf($scope.addMe) == -1) {
+             $scope.products.push($scope.addMe);
+             $scope.addMe='';
+             
+         } else {
+             $scope.errortext = "The item is already in your list.";
+             $scope.addMe='';
+         }
+     }
+     $scope.removeItem = function (x) {
+         $scope.errortext = "";    
+         $scope.products.splice(x, 1);
+     }
 });

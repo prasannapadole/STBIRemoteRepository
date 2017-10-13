@@ -55,7 +55,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	      
 	    long projectid=Long.parseLong(request.getParameter("projectid"));
 	    String deletedescription=request.getParameter("reason");
-	     int Sigdisplay=1;
+	
 	     String query="select sigId from sigregi where emailid=?";
   	     pst=con.prepareStatement(query);
   	     pst.setString(1,sigmail);
@@ -66,12 +66,12 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
   	    	dbsigid=rs.getLong(1);
   	    	}
   	     
-  	     String query1="update upgrademybusinessprojectinfo set sigId=?,sigdisplay=?,sigdeletedesc=? where projectId=?";
+  	     String query1="update upgrademybusinessprojectinfo set sigId=?,sigdeletedesc=? where projectId=?";
   	     pst1=con.prepareStatement(query1);
   	     pst1.setLong(1,dbsigid);
-  	     pst1.setInt(2,Sigdisplay);
-  	     pst1.setString(3,deletedescription);
-  	     pst1.setLong(4,projectid);
+  
+  	     pst1.setString(2,deletedescription);
+  	     pst1.setLong(3,projectid);
   	     
   	     int i=pst1.executeUpdate();
   	     

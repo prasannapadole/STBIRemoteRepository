@@ -13,32 +13,8 @@
 	  <script src="https://cdn.jsdelivr.net/npm/places.js@1.4.15"></script>
 	  <script src="js/begin-login.js"></script>
 	  <script src="js/city-navbar.js"></script>
-	  <script type="text/javascript">
-	    var request;  
-		function sendInfo(){  
-	    var email=document.myForm.email.value;  
-		var url="UpgradeBusinessMatchEmail?email="+email;  
-		if(window.XMLHttpRequest){  
-		request=new XMLHttpRequest();  
-		}  
-		else if(window.ActiveXObject){  
-		request=new ActiveXObject("Microsoft.XMLHTTP");  
-		}  
-		try{  
-		request.onreadystatechange=getInfo;  
-		request.open("POST",url,true);  
-		request.send();  
-		}catch(e){alert("Unable to connect to server");}  
-		}  
-		  
-		function getInfo(){  
-		if(request.readyState==4){  
-		var val=request.responseText;  
-		document.getElementById('mylocation').innerHTML=val;  
-		}  
-		} 
-		</script>   
-	</head>
+      <script type="text/javascript" src="mail_Js/begin_login.js"></script>
+	 </head>
   <!------------------------------------------Body------------------------------------------------------>
   <body class="has-bg-img">
    <!--   <center>
@@ -128,7 +104,7 @@
 													   <div class="form-group">
 														    <label class="col-sm-3 control-label">Email Id</label>
 														    <div class="col-sm-8 has-feedback">
-														      <input class="form-control" id="focusedInput" type="text" value="" name="email" ng-model="email" ng-pattern="emailid" onkeyup="sendInfo();" onmouseenter="sendInfo();" required/>
+														      <input class="form-control" id="focusedInput" type="text" value="" name="email" ng-model="email" ng-pattern="emailid" onkeyup="sendInfo1();" onmouseenter="sendInfo1();" required/>
 															  <span class="glyphicon  glyphicon-envelope form-control-feedback"></span>
 															  <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
 														      <span ng-show="myForm.email.$error.required">Please specify your Email ID</span></span>
@@ -159,7 +135,7 @@
 													    <div class="form-group  has-feedback">
 														    <label class="col-sm-3 control-label">No. of Employee</label>
 														    <div class="col-sm-8">
-														      <input class="form-control" id="focusedInput" type="text" value="" ng-model="emp"  name="emp" ng-pattern="/^[0-9]{1,6}$/" required/>
+														      <input class="form-control" id="focusedInput" type="text" value="" ng-model="emp"  name="emp" ng-pattern="/^[0-9]{1,100}$/" required/>
 														   	  <span class="glyphicon glyphicon-user form-control-feedback"></span>
 														   	  <span style="color:red" ng-show="myForm.emp.$dirty && myForm.emp.$invalid">
 														      <span ng-show="myForm.emp.$error.required">Please specify no. of employee</span></span>
@@ -167,9 +143,9 @@
 														    </div>
 													  </div>
 													   <div class="form-group  has-feedback">
-														    <label class="col-sm-3 control-label">Annual Turnover</label>
+														    <label class="col-sm-3 control-label">Annual Turnover (In Rs.)</label>
 														    <div class="col-sm-8">
-														      <input class="form-control" id="focusedInput" type="text" value="" ng-model="annnual"  name="annnual" ng-pattern="/^[0-9]{1,6}$/" required/>
+														      <input class="form-control" id="focusedInput" type="text" value="" ng-model="annnual"  name="annnual" ng-pattern="/^[0-9]{1,1000}$/" required/>
 														   	  <span class="glyphicon glyphicon-user form-control-feedback"></span>
 														   	  <span style="color:red" ng-show="myForm.annnual.$dirty && myForm.annnual.$invalid">
 														      <span ng-show="myForm.annnual.$error.required">Please specify annual turnover</span></span>

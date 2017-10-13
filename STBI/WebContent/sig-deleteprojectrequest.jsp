@@ -131,7 +131,7 @@
 <form action="./RequesttoDeleteproject" method="post" style="margin-top: 100px;">
 		 <div style="padding: 30px;" >
 				 <div class="form-group">
-				    <label for="inputsm">Reason To Delete Idea</label>
+				    <label for="inputsm">Reason To Delete Project</label>
 				 <textarea class="form-control input-md" id="inputsm" rows=" " cols="" name="reason" placeholder="Reason to Delete Project" required></textarea>
 					  </div>
 					  <div><input type="hidden" name="projectid" value="<%=projectid %>"/> </div>

@@ -6,43 +6,49 @@
 	long userid=0;
 	Connection con=null;
 	String query;
-    PreparedStatement pst,pst1,pst2,pst3,pst4;
-    ResultSet rs,rs1,rs2,rs3,rs4;
+    PreparedStatement pst;
+    ResultSet rs;
     %>
 	   <%
-	   		    response.setHeader("Cache-Control","no-cache"); //Forces caches to obtain a new copy of the page from the origin server
-		  	    response.setHeader("Cache-Control","no-store"); //Directs caches not to store the page under any circumstance
-		    	response.setDateHeader("Expires", 0); //Causes the proxy cache to see the page as "stale"
-		        response.setHeader("Pragma","no-cache"); //HTTP 1.0 backward compatibility
-	    session=request.getSession();
-	    String useremail=(String)session.getAttribute("useremail");
-	    try
-        {
-      if(useremail.equals(null)|| useremail=="")
-        {
-	  RequestDispatcher rd=request.getRequestDispatcher("/begin_login.jsp");
-	  rd.forward(request,response);
-	    }
-       else
-       {}
-      }
-    catch(Exception e)
-       {
-   RequestDispatcher rd=request.getRequestDispatcher("/begin_login.jsp");
-   rd.forward(request,response);
-   }
-	    con=Dao.getConnection();
-	    query="select userId from user where emailid=?";
-	    pst=con.prepareStatement(query);
-	    pst.setString(1,useremail);
-	    rs=pst.executeQuery();
-	    
-	    while(rs.next())
-	    {
-	    userid=rs.getLong(1);	
-	    }
-	    request.setAttribute("userid",userid);
-	   %>		<nav class="navbar navbar-fixed-top ">
+	     response.setHeader("Cache-Control","no-cache"); //Forces caches to obtain a new copy of the page from the origin server
+ 	     response.setHeader("Cache-Control","no-store"); //Directs caches not to store the page under any circumstance
+     	 response.setDateHeader("Expires", 0); //Causes the proxy cache to see the page as "stale"
+         response.setHeader("Pragma","no-cache"); //HTTP 1.0 backward compatibility
+session=request.getSession();
+String useremail=(String)session.getAttribute("useremail");
+try
+{
+if(useremail.equals(null)|| useremail=="")
+{
+ response.sendRedirect("begin-login.jsp");
+//RequestDispatcher rd=request.getRequestDispatcher("/begin_login.jsp");
+// rd.forward(request,response);
+}
+else
+{}
+}
+catch(Exception e)
+{
+response.sendRedirect("begin-login.jsp");
+// RequestDispatcher rd=request.getRequestDispatcher("/begin_login.jsp");
+// rd.forward(request,response);
+}
+con=Dao.getConnection();
+query="select userId,firstname,middlename,lastname from user where emailid=?";
+pst=con.prepareStatement(query);
+pst.setString(1,useremail);
+rs=pst.executeQuery();
+String dbfname1="",dbmname1="",dblanme1="";
+while(rs.next())
+{
+userid=rs.getLong(1);
+dbfname1=rs.getString(2);
+dbmname1=rs.getString(3);
+dblanme1=rs.getString(4);
+
+
+}
+	   %>			<nav class="navbar navbar-fixed-top ">
 			       <div class="navbar-conteiner">
 				    <div class="navbar-header">
 				     <!--  <img src="logo/Logo.jpg"> -->
@@ -79,7 +85,7 @@
 					                </a>
 						    </li>
 					         <li class="dropdown notification">
-					                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user-circle-o fa-icons"><br><span class="icon-fonts">Dattaprasad</span></i>
+					                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user-circle-o fa-icons"><br><span class="icon-fonts"><%=dbfname1%> <%=dblanme1%></span></i>
 					               		<ul class="dropdown-menu">
 								          <li><a href="#">
 													<table class="table ">
@@ -90,11 +96,15 @@
 													      </tr>
 													      <tr>
 													        <td>Name</td>
-													        <td>Dattaprasad Dashrath Ingle</td>
+													        <td><%=dbfname1%> <%=dbmname1%> <%=dblanme1%></td>
 													      </tr>
 													      <tr>
 													        <td>Email Id</td>
-													        <td>dattaprasad.ingle@rlard.com</td>
+													        <td><%=useremail %></td>
+													      </tr>
+													      <tr>
+													        <td colspan="2" style="text-align:center;"><a href="UserLogout">SignOut</a></td>
+													     
 													      </tr>
 													    </tbody>
 													  </table>
@@ -105,5 +115,7 @@
 					      </ul>
 				    </div>
 			  </div>
-		</nav>
+		</nav>	
+		<jsp:forward page="begin-dashboard.jsp"></jsp:forward>	
+		<jsp:param value="<%=useremail%>" name="useremail"/>
 </html>

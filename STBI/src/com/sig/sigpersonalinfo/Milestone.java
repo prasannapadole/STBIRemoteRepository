@@ -98,7 +98,7 @@ public void init(ServletConfig config) throws ServletException
 		{
 			     out.println("<html><body style=background-color:#FFFFFF>");
 	    	    out.println("<script type=\"text/javascript\">");
-		        out.println("alert('MileStones Added Successfully...')");
+		        out.println("alert('Milestone Added Successfully...')");
 		        out.println("document.location.href = 'sig-dashboard.jsp';\n");
 		        out.println("</script>");
 		        out.println("</body></html>");

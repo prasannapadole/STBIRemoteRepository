@@ -13,81 +13,10 @@
 	  <script src="https://cdn.jsdelivr.net/npm/places.js@1.4.15"></script>
 	  <script src="js/begin-login.js"></script>
 	  <script src="js/city-navbar.js"></script>
-	  <script type="text/javascript">
-	    var request;  
-		function sendInfo(){  
-	    var email=document.sigForm.email.value;  
-		var url="SigMatchEmail?email="+email;  
-		if(window.XMLHttpRequest){  
-		request=new XMLHttpRequest();  
-		}  
-		else if(window.ActiveXObject){  
-		request=new ActiveXObject("Microsoft.XMLHTTP");  
-		}  
-		try{  
-		request.onreadystatechange=getInfo;  
-		request.open("POST",url,true);  
-		request.send();  
-		}catch(e){alert("Unable to connect to server");}  
-		}
-		   
-		function getInfo(){  
-		if(request.readyState==4){  
-		var val=request.responseText;  
-		document.getElementById('mylocation').innerHTML=val;  
-		}  
-		} 
-		</script>		
-		<script type="text/javascript">
-	    var request;  
-		function sendInforma(){  
-	    var email=document.incubateeForm.email.value;  
-		var url="IncubationMatchEmail?email="+email;  
-		if(window.XMLHttpRequest){  
-		request=new XMLHttpRequest();  
-		}  
-		else if(window.ActiveXObject){  
-		request=new ActiveXObject("Microsoft.XMLHTTP");  
-		}  
-		try{  
-		request.onreadystatechange=getInfo;  
-		request.open("POST",url,true);  
-		request.send();  
-		}catch(e){alert("Unable to connect to server");}  
-		}  
-		  
-		function getInfo(){  
-		if(request.readyState==4){  
-		var val=request.responseText;  
-		document.getElementById('myloc').innerHTML=val;  
-		}  
-		} 
-		 </script>  
-		 <script type="text/javascript">
-		    var request;  
-			function sendInformation(){  
-		    var email=document.instituteForm.pemail.value;  
-			var url="InstituteMatchemailPage?email="+email;  
-			if(window.XMLHttpRequest){  
-			request=new XMLHttpRequest();  
-			}  
-			else if(window.ActiveXObject){  
-			request=new ActiveXObject("Microsoft.XMLHTTP");  
-			}  
-			try{  
-			request.onreadystatechange=getInfo;  
-			request.open("POST",url,true);  
-			request.send();  
-			}catch(e){alert("Unable to connect server");}  
-			}  
-			  
-			function getInfo(){  
-			if(request.readyState==4){  
-			var val=request.responseText;  
-			document.getElementById('mylocc').innerHTML=val;  
-			}  
-			} 
-		</script>
+      <script type="text/javascript" src="mail_Js/begin_login.js"></script> 
+	
+		
+	
 	    </head>
   <!------------------------------------------Body------------------------------------------------------>
   <body class="has-bg-img">
@@ -127,7 +56,7 @@
 												          <div class="centers">
 												          		<img src="logo/avtar.png" class="avtar">
 												          </div><hr>
-														  <div class="input-group">
+                                  													  <div class="input-group">
 														    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 														    <input id="email" type="text" class="form-control input-lg" name="email" ng-model="email" placeholder="Email ID" required>
 														  </div><br>
@@ -290,11 +219,12 @@
 															   <div class="form-group">
 																    <label class="col-sm-3 control-label">Email Id</label>
 																    <div class="col-sm-8 has-feedback">
-																      <input class="form-control" id="focusedInput" type="text" value="" name="email" ng-model="email" ng-pattern="emailid" required/>
+																      <input class="form-control" id="focusedInput" type="text" value="" name="email" ng-model="email" onkeyup="sendInfo3();" onmouseenter="sendInfo3();" onchange="" ng-pattern="emailid" required/>
 																	  <span class="glyphicon  glyphicon-envelope form-control-feedback"></span>
 																	  <span style="color:red" ng-show="sigForm.email.$dirty && sigForm.email.$invalid">
 																      <span ng-show="sigForm.email.$error.required">Please specify your Email ID</span></span>
 																	  <span ng-show="sigForm.email.$error.pattern" style="color:red">Please enter correct email address.</span>
+																	  <span id="myloca"></span>
 																    </div>
 															  </div>
 															   <div class="form-group">
@@ -404,7 +334,7 @@
 															   <div class="form-group">
 																    <label class="col-sm-3 control-label">Email Id</label>
 																    <div class="col-sm-8 has-feedback">
-																      <input class="form-control" id="focusedInput" type="text" value="" name="pemail" onkeyup="sendInfoo();" onmouseenter="sendInfoo();"  ng-model="pemail"  ng-pattern="emailid"  required/>
+																      <input class="form-control" id="focusedInput" type="text" value="" name="pemail" onkeyup="sendInfo4();" onmouseenter="sendInfo4();"  ng-model="pemail"  ng-pattern="emailid"  required/>
 																	  <span class="glyphicon  glyphicon-envelope form-control-feedback"></span>
 																	  <span style="color:red" ng-show="instituteForm.pemail.$dirty && instituteForm.pemail.$invalid">
 																      <span ng-show="instituteForm.pemail.$error.required">Please specify your Email ID</span></span>
@@ -544,7 +474,7 @@
 															  <div class="form-group ">
 																    <label class="col-sm-3 control-label">Name of Incubation Center</label>
 																    <div class="col-sm-8  has-feedback">
-																      <input class="form-control" id="focusedInput" type="text" value="" ng-model="incuname" ng-change="incuname=incuname.toUpperCase();" name="incuname" ng-pattern="stringonly" required>
+																      <input class="form-control" id="focusedInput" type="text" value="" ng-model="incuname" ng-change="incuname=incuname.toUpperCase();" name="incuname" ng-pattern="" required>
 																      <span class="glyphicon glyphicon-user form-control-feedback"></span>
 																      <span style="color:red" ng-show="incubateeForm.incuname.$dirty && incubateeForm.incuname.$invalid">
 																      <span ng-show="incubateeForm.incuname.$error.required">Please specify name of incubation center</span></span>
@@ -618,12 +548,12 @@
 															   <div class="form-group">
 																    <label class="col-sm-3 control-label">Email Id</label>
 																    <div class="col-sm-8 has-feedback">
-																      <input class="form-control" id="focusedInput" type="text" value="" name="email" ng-model="email" ng-pattern="emailid" onkeyup="sendInforma();" onmouseenter="sendInforma();" required/>
+																      <input class="form-control" id="focusedInput" type="text" value="" name="email" ng-model="email" ng-pattern="emailid" onkeyup="sendInfo5();" onmouseenter="sendInfo5();" required/>
 																	  <span class="glyphicon  glyphicon-envelope form-control-feedback"></span>
 																	  <span style="color:red" ng-show="incubateeForm.email.$dirty && incubateeForm.email.$invalid">
 																      <span ng-show="incubateeForm.email.$error.required">Please specify your Email ID</span></span>
 																	  <span ng-show="incubateeForm.email.$error.pattern" style="color:red">Please enter correct email address.</span>
-																        <span id="myloc"></span>
+																      <span id="mylocc"></span>
 																    </div>
 															  </div>
 															  

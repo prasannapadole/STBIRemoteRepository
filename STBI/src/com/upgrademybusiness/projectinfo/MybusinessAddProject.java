@@ -60,22 +60,13 @@ public class MybusinessAddProject extends HttpServlet {
 		    long sigId=0,instituteid=0,incubationid=0;
 		    int sigdisplay=0,institutedisplay=0,incubationdisplay=0;
 		    String sigdeleteprojectdescription="-",institutedeleteprojectdescription="",incubationdeleteprojectdescription="";
-		    
-		    
-		    
-		 
-			String se="select mybusinessId,industryname,companydescription from upgrademybusiness where emailid=?";   //get userid through email id
+		    String deleteproject="-";
+		    String se="select mybusinessId,industryname,companydescription from upgrademybusiness where emailid=?";   //get userid through email id
 			ps=con.prepareStatement(se);
 			ps.setString(1,upgrademybusinessemail);
 			rs1=ps.executeQuery();
 			long dbmybusinessId=0;
-			String dbindustryname="",dbcompanydescription=""; 
-					while(rs1.next())
-					{
-						dbmybusinessId=rs1.getLong(1);
-						dbindustryname=rs1.getString(2);
-						dbcompanydescription=rs1.getString(3);
-					}
+			
 					String query="select max(projectId) from upgrademybusinessprojectinfo";   //select max of id from ideasumit table 
 					PreparedStatement pst=con.prepareStatement(query);
 					ResultSet rs=pst.executeQuery();
@@ -93,30 +84,29 @@ public class MybusinessAddProject extends HttpServlet {
 						projectid=dbprojectId+1; 
 					}		
 			
-					String quuery1="insert into upgrademybusinessprojectinfo values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  //insert data into ideasubmit table 
+					String quuery1="insert into upgrademybusinessprojectinfo values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  //insert data into ideasubmit table 
 					PreparedStatement pst1=con.prepareStatement(quuery1);
 				   pst1.setLong(1,projectid);
 			       pst1.setString(2,titleofproject);
-			     
 			       pst1.setString(3,projectdesc );
-			      
 			       pst1.setString(4,availableresources );
 			       pst1.setString(5,expectedskills );
 			       pst1.setString(6,allocatedfund );
 			       pst1.setString(7,milestone );
 			       pst1.setString(8,status );
 			       pst1.setString(9,applydate );
-			       pst1.setLong(10,dbmybusinessId );
-			       pst1.setString(11,adminconfirmation);
-			       pst1.setLong(12,sigId);
-			       pst1.setLong(13,instituteid);
-			       pst1.setLong(14,incubationid);
-			       pst1.setInt(15,sigdisplay);
-			       pst1.setInt(16,institutedisplay);
-			       pst1.setInt(17,incubationdisplay);
-			       pst1.setString(18,sigdeleteprojectdescription);
-			       pst1.setString(19,institutedeleteprojectdescription);
-			       pst1.setString(20,incubationdeleteprojectdescription);
+			       pst1.setString(10,deleteproject );
+			       pst1.setLong(11,dbmybusinessId );
+			       pst1.setString(12,adminconfirmation);
+			       pst1.setLong(13,sigId);
+			       pst1.setLong(14,instituteid);
+			       pst1.setLong(15,incubationid);
+			       pst1.setInt(16,sigdisplay);
+			       pst1.setInt(17,institutedisplay);
+			       pst1.setInt(18,incubationdisplay);
+			       pst1.setString(19,sigdeleteprojectdescription);
+			       pst1.setString(20,institutedeleteprojectdescription);
+			       pst1.setString(21,incubationdeleteprojectdescription);
 			       int i=pst1.executeUpdate(); //record inserted successfully.
 					if(i>0)
 					{
